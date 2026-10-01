@@ -1,0 +1,15 @@
+id: 01a0f6bb-a9a9-700c-9f76-180e5c24ceb0
+version: 1
+name: Vehicle Local Mock
+slug: new-mock-bf232
+enableSession: true
+protocol: http
+port: 4500
+autoRestartOnChange: true
+logging:
+  level: verbose
+  showBody: true
+scenarios:
+  - name: default
+    path: ./default.js
+    default: true
