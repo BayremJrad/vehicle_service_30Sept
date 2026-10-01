@@ -1,0 +1,25 @@
+$kind: http-request
+url: "{{baseUrl}}/vehicles/:id"
+method: DELETE
+headers:
+  Accept: application/json
+pathVariables:
+  - key: id
+    value: "{{vehicleID}}"
+    description: ""
+settings: {}
+scripts:
+  - type: afterResponse
+    code: |-
+      // Contract tests — Delete a vehicle (DELETE /vehicles/:id)
+
+      pm.test("Status code is 204 No Content", function () {
+          pm.response.to.have.status(204);
+      });
+
+      pm.test("Response body is empty", function () {
+          pm.expect(pm.response.text()).to.be.empty;
+      });
+    language: text/javascript
+examples: ./.resources/Delete a vehicle.resources/examples
+order: 4000
